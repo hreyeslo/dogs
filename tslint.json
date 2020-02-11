@@ -18,7 +18,7 @@
     "component-selector": [
       true,
       "element",
-      "app",
+      "dogs",
       "kebab-case"
     ],
     "import-blacklist": [
