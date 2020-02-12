@@ -1,4 +1,4 @@
-import { IAppConfig } from '@shared/models';
+import { IAppConfig } from '../models/core.model';
 
 export class ConfigManager {
   private _config: IAppConfig;

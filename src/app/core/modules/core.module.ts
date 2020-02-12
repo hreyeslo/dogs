@@ -5,11 +5,10 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { RequestIdleModule } from 'ngx-request-idle';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-// Shared
-import { APP_CONFIG, APP_ENVIRONMENT, IAppEnv, IAppConfig } from '@shared/models';
-import { ConfigManager } from '@shared/config';
 // Module parts
-import { environment } from '../../environments/environment';
+import { IAppEnv, IAppConfig, APP_ENVIRONMENT, APP_CONFIG } from '../models/core.model';
+import { environment } from '../../../environments/environment';
+import { ConfigManager } from '../config/config';
 
 @NgModule({
   imports: [
