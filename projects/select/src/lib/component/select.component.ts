@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { NbComponentSize, NbComponentShape, NbSelectAppearance, NbComponentStatus } from '@nebular/theme';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter } from '@angular/core';
+// Component parts
+import { SelectItems, ISelectItem } from '../select.model';
 
 @Component({
   selector: 'dogs-select',
@@ -7,32 +8,15 @@ import { NbComponentSize, NbComponentShape, NbSelectAppearance, NbComponentStatu
   styleUrls: ['./select.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent {
 
-  selectedItem = '2';
-  singleSelectValue = '1';
-  multipleSelectValue = ['1'];
-  disabledOptionValue = '3';
+  @Input() items: SelectItems = [];
+  @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
 
-  selectedSize: NbComponentSize = 'medium';
-  selectedShape: NbComponentShape = 'rectangle';
+  constructor() {}
 
-  fullWidth = true;
-
-  appearances: NbSelectAppearance[] = ['outline', 'filled', 'hero'];
-  sizes: NbComponentSize[] = ['tiny', 'small', 'medium', 'large', 'giant'];
-  shapes: NbComponentShape[] = ['rectangle', 'semi-round', 'round'];
-  statuses: NbComponentStatus[] = ['basic', 'primary', 'success', 'info', 'warning', 'danger', 'control'];
-
-  public ngOnInit() {}
-
-  selectDisabledOption(): void {
-    this.singleSelectValue = this.disabledOptionValue;
-    this.multipleSelectValue = [this.disabledOptionValue];
-  }
-
-  toggleFullWidth(): void {
-    this.fullWidth = !this.fullWidth;
+  trackBy(index: number, item: ISelectItem) {
+    return item.value;
   }
 
 }

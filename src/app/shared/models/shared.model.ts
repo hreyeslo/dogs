@@ -1,13 +1,21 @@
 import { InjectionToken } from '@angular/core';
-
-// Tokens
-export const API_CONFIG = new InjectionToken<string>('API_CONFIG');
+import { ConfigManager } from '@shared/config';
 
 // Interface
-export interface IApiConfig {
+export interface IAppConfig {
   host: string;
+  randomImages: number;
+}
+
+export interface IAppEnv {
+  production: boolean;
+  configFile: string;
 }
 
 export interface IAppStore {
   [key: string]: any;
 }
+
+// Tokens
+export const APP_CONFIG = new InjectionToken<ConfigManager>('APP_CONFIG');
+export const APP_ENVIRONMENT = new InjectionToken<IAppEnv>('APP_ENVIRONMENT');

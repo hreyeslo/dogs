@@ -12,12 +12,16 @@ import { IFinderBreeds } from '../models/finder.model';
 @Injectable()
 export class FinderService implements AbstractFinderService {
 
-  constructor(private breedsService: SharedBreedsService) { }
+  constructor(private _breedsService: SharedBreedsService) { }
 
   // Public
   loadBreeds(): Observable<IFinderBreeds> {
-    return this.breedsService.getAllBreeds()
+    return this._breedsService.getAllBreeds()
       .pipe(switchMap(this._mapBreeds));
+  }
+
+  loadImages(path: string): Observable<string[]> {
+    return this._breedsService.getBreedImage(path);
   }
 
   // Private

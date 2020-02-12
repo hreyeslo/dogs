@@ -7,6 +7,7 @@ export interface IFeatureAppStore extends IAppStore {
   [featureStoreName]: IFinderStore;
 }
 
-export const selectBerds = (state: IFeatureAppStore) => state[featureStoreName];
+export const selectFinderStore = (state: IFeatureAppStore) => state[featureStoreName];
 
-export const selectBreeds = createSelector(selectBerds, (state: IFinderStore) => state.breeds);
+export const selectBreeds = createSelector(selectFinderStore, (state: IFinderStore) => state.breeds);
+export const selectBreedImages = createSelector(selectFinderStore, (state: IFinderStore) => state.currentBreedImages);

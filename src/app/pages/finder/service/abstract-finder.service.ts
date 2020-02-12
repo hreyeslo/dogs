@@ -14,4 +14,6 @@ import { FinderService } from './finder.service';
 })
 export abstract class AbstractFinderService {
   abstract loadBreeds(): Observable<IFinderBreeds>;
+
+  abstract loadImages(path: string): Observable<string[]>;
 }

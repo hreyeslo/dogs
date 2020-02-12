@@ -1,4 +1,4 @@
 <section class="c-finder">
-    <dogs-select></dogs-select>
-    <dogs-photo [title]="'Breed'" [image]="''"></dogs-photo>
+    <dogs-select [items]="breeds$ | async" (selectedChange)="fetchImages($event)"></dogs-select>
+    <dogs-photo [images]="breedImages$ | async" [loading]="loading"></dogs-photo>
 </section>

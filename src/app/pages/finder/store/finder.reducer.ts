@@ -1,17 +1,29 @@
 import { createReducer, on, Action } from '@ngrx/store';
 // Reducer parts
-import { loadBreedsSuccess, loadBreedsError } from './finder.actions';
+import { loadBreedsSuccess, loadBreedsError, loadBreedImagesSuccess } from './finder.actions';
 import { IFinderStore } from './finder.state';
 
 export const initialState: IFinderStore = {
-  breeds: {}
+  breeds: {},
+  currentBreedImages: []
 };
 
 const _finderReducer = createReducer(initialState,
   on(loadBreedsSuccess, (state, {payload}) => ({...state, breeds: payload})),
   on(loadBreedsError, state => {
     console.error('Empty breeds');
-    return state;
+    return {
+      ...state,
+      breeds: {}
+    };
+  }),
+  on(loadBreedImagesSuccess, (state, {payload}) => ({...state, currentBreedImages: payload})),
+  on(loadBreedsError, state => {
+    console.error('Empty breed images');
+    return {
+      ...state,
+      currentBreedImages: []
+    };
   })
 );
 

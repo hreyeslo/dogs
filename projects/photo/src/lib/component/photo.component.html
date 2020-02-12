@@ -1,7 +1,11 @@
-<!--<nb-card accent="info">-->
-<!--    <nb-card-header>{{title}}</nb-card-header>-->
-<!--    <nb-card-body class="c-photo">-->
-<!--        <img class="c-photo__image" [src]="image" alt="">-->
-<!--    </nb-card-body>-->
-<!--</nb-card>-->
-<gallery gallerize [items]="galery"></gallery>
+<div class="c-photo">
+    <ng-container *ngIf="!loading; else loadingTemplate">
+        <img class="c-photo__image" *ngFor="let image of images" [src]="image" [alt]="images">
+    </ng-container>
+    <ng-template #loadingTemplate>
+        <div class="c-photo__spinner">
+            <div class="c-photo__spinner__circle"></div>
+            <div class="c-photo__spinner__circle"></div>
+        </div>
+    </ng-template>
+</div>

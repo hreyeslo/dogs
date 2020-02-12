@@ -21,6 +21,18 @@ export class FinderEffects {
     )
   );
 
+  loadBreedImages$ = createEffect(() =>
+    this._actions$.pipe(
+      ofType(EFinderActions.LOAD_BREED_IMAGES),
+      switchMap(({payload}) => this._finderService.loadImages(payload)
+        .pipe(
+          map(breedImages => ({type: EFinderActions.LOAD_BREED_IMAGES_SUCCESS, payload: breedImages})),
+          catchError(() => of({type: EFinderActions.LOAD_BREED_IMAGES_ERROR}))
+        )
+      )
+    )
+  );
+
   constructor(
     private _actions$: Actions,
     private _finderService: AbstractFinderService

@@ -1,5 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, OnChanges } from '@angular/core';
-import { GalleryItem, ImageItem } from '@ngx-gallery/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'dogs-photo',
@@ -7,19 +6,11 @@ import { GalleryItem, ImageItem } from '@ngx-gallery/core';
   styleUrls: ['./photo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PhotoComponent implements OnChanges {
+export class PhotoComponent {
 
-  @Input() title: string;
-  @Input() images: string[] = ['https://images.dog.ceo/breeds/schnauzer-giant/n02097130_5618.jpg'];
-
-  galery: GalleryItem[];
+  @Input() images: string[] = [];
+  @Input() loading: boolean;
 
   constructor() { }
-
-  ngOnChanges(): void {
-    this.galery = this.images.map(image => {
-      return new ImageItem({src: image, thumb: image});
-    });
-  }
 
 }
