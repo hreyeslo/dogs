@@ -1,9 +1,19 @@
+import { NbSelectModule } from '@nebular/theme';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SelectComponent } from './select.component';
+// Module parts
+import { SelectComponent } from './component/select.component';
 
 @NgModule({
-  declarations: [SelectComponent],
-  imports: [],
-  exports: [SelectComponent]
+  imports: [
+    CommonModule,
+    NbSelectModule
+  ],
+  declarations: [
+    SelectComponent
+  ],
+  exports: [
+    SelectComponent
+  ]
 })
-export class SelectModule { }
+export class SelectModule {}

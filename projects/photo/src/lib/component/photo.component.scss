@@ -1,0 +1,8 @@
+.c-photo {
+	display: flex;
+	justify-content: center;
+
+	&__image {
+		max-width: 300px;
+	}
+}

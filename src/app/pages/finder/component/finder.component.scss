@@ -1,0 +1,13 @@
+:host {
+	--finder-container-width: var(--container-width, 500px);
+}
+
+.c-finder {
+	display: grid;
+	grid-gap: 50px;
+	grid-template-columns: repeat(auto-fill, minmax(auto, 100%));
+	justify-items: center;
+	align-items: stretch;
+	margin: 50px auto;
+	max-width: var(--finder-container-width);
+}

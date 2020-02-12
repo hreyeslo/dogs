@@ -24,9 +24,18 @@
 			"dom"
 		],
 		"paths": {
-			"@ui/select": ["projects/select/src/public-api"],
-			"@shared/services": ["src/app/shared/services_api"],
-			"@shared/models": ["src/app/shared/models_api"]
+			"@ui/select": [
+				"projects/select/src/public-api"
+			],
+			"@ui/photo": [
+				"projects/photo/src/public-api"
+			],
+			"@shared/services": [
+				"src/app/shared/services_api"
+			],
+			"@shared/models": [
+				"src/app/shared/models_api"
+			]
 		}
 	},
 	"angularCompilerOptions": {

@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
   api: {
-    host: ''
+    host: 'https://dog.ceo/api'
   }
 };

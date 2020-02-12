@@ -1,10 +1,13 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserModule } from '@angular/platform-browser';
 import { RequestIdleModule } from 'ngx-request-idle';
-import { NbThemeModule } from '@nebular/theme';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 // Shared
-import { API_HOST } from '@shared/models';
+import { API_CONFIG } from '@shared/models';
 // Env settings
 import { environment } from '../environments/environment';
 // Module parts
@@ -20,12 +23,26 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     RequestIdleModule.forRoot(),
-    NbThemeModule.forRoot({name: 'default'})
+    NbThemeModule.forRoot({name: 'default'}),
+    NbLayoutModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({}, {
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+        strictStateSerializability: true,
+        strictActionSerializability: true
+      }
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [
     {
-      provide: API_HOST,
-      useValue: environment.api.host
+      provide: API_CONFIG,
+      useValue: environment.api
     }
   ],
   bootstrap: [AppComponent]
