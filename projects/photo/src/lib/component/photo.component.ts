@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Inject, Optional } from '@angular/core';
 // Component parts
 import { PHOTO_LITERALS, PhotoLiterals } from '../photo.model';
 
@@ -13,6 +13,6 @@ export class PhotoComponent {
   @Input() images: string[] = [];
   @Input() loading: boolean;
 
-  constructor(@Inject(PHOTO_LITERALS) public literals$: PhotoLiterals) { }
+  constructor(@Optional() @Inject(PHOTO_LITERALS) public literals$: PhotoLiterals) { }
 
 }

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, Inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, Inject, Optional } from '@angular/core';
 // Component parts
 import { SelectItems, ISelectItem, SELECT_LITERALS, SelectLiterals } from '../select.model';
 
@@ -14,9 +14,9 @@ export class SelectComponent {
   @Input() selectedItem: string;
   @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(@Inject(SELECT_LITERALS) public literals$: SelectLiterals) {}
+  constructor(@Optional() @Inject(SELECT_LITERALS) public literals$: SelectLiterals) {}
 
-  trackBy(index: number, item: ISelectItem) {
+  trackBy(index: number, item: ISelectItem): string {
     return item.value;
   }
 

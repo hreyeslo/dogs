@@ -1,5 +1,11 @@
+import { NbSelectModule, NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { CommonModule } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
+// UI
+import { ISelectItem, SELECT_LITERALS, ISelectLiterals } from '@ui/select';
+// Component parts
+import { defaultLiterals } from '../default.literals';
 import { SelectComponent } from './select.component';
 
 describe('SelectComponent', () => {
@@ -8,9 +14,21 @@ describe('SelectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SelectComponent ]
-    })
-    .compileComponents();
+        imports: [
+          CommonModule,
+          NbThemeModule.forRoot({name: 'default'}),
+          NbLayoutModule,
+          NbSelectModule
+        ],
+        providers: [
+          {
+            provide: SELECT_LITERALS,
+            useValue: new BehaviorSubject<ISelectLiterals>(defaultLiterals)
+          }
+        ],
+        declarations: [SelectComponent]
+      })
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -22,4 +40,14 @@ describe('SelectComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should return value', () => {
+    const item: ISelectItem = {
+      name: 'Dog',
+      value: 'dog'
+    };
+    const value = component.trackBy(0, item);
+    expect(value).toEqual(item.value);
+  });
+
 });
