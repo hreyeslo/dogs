@@ -36,7 +36,7 @@
 			"@shared/models": [
 				"src/app/shared/models_api"
 			],
-			"@core/config": [
+			"@app/core": [
 				"src/app/core/core_api"
 			]
 		}

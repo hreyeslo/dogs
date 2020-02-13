@@ -19,7 +19,7 @@ export class FinderComponent implements OnInit {
   breedImages$: Observable<string[]>;
   loading: boolean;
 
-  constructor(private _store: Store) { }
+  constructor(private _store: Store) {}
 
   ngOnInit(): void {
     this._store.dispatch(loadBreeds());

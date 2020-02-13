@@ -13,6 +13,7 @@ import { FinderRoutingModule } from './finder-routing.module';
 import { featureStoreName } from './store/finder.state';
 import { FinderEffects } from './store/finder.effects';
 import { finderReducer } from './store/finder.reducer';
+import { I18nModule } from '@app/core';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { finderReducer } from './store/finder.reducer';
     FinderRoutingModule,
     EffectsModule.forFeature([FinderEffects]),
     StoreModule.forFeature(featureStoreName, finderReducer),
+    I18nModule.forChild('finder'),
     FinderServiceApiModule,
     NbLayoutModule,
     SelectModule,
