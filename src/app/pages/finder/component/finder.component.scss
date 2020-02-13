@@ -4,10 +4,14 @@
 
 .c-finder {
 	display: grid;
-	grid-gap: 50px;
+	grid-gap: 25px;
 	grid-template-columns: repeat(auto-fill, minmax(auto, 100%));
 	justify-items: center;
 	align-items: stretch;
-	margin: 50px auto;
+	margin: 0 auto 50px auto;
 	max-width: var(--finder-container-width);
+
+	&__title {
+		font-size: 2rem;
+	}
 }

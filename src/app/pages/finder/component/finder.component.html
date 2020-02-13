@@ -1,4 +1,5 @@
 <section class="c-finder">
+    <h1 class="c-finder__title">{{'title' | translate}}</h1>
     <dogs-select [items]="breeds$ | async" (selectedChange)="fetchImages($event)"></dogs-select>
     <dogs-photo [images]="breedImages$ | async" [loading]="loading"></dogs-photo>
 </section>

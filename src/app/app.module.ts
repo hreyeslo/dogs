@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // Core
 import { CoreModule, I18nModule } from '@app/core';
+// UI
+import { SelectModule } from '@ui/select';
 // Module parts
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +18,8 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    I18nModule.forRoot('app')
+    I18nModule.forRoot('app'),
+    SelectModule
   ],
   bootstrap: [AppComponent]
 })

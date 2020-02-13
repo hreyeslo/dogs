@@ -1,3 +1,7 @@
-<nb-select placeholder="Select Breed" (selectedChange)="selectedChange.emit($event)">
+<nb-select
+    [placeholder]="(literals$ | async)?.placeholder"
+    (selectedChange)="selectedChange.emit($event)"
+    [(selected)]="selectedItem"
+>
     <nb-option *ngFor="let item of items; trackBy:trackBy" [value]="item?.value">{{item?.name | titlecase}}</nb-option>
 </nb-select>
