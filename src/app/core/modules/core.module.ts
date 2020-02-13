@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 // Module parts
 import { IAppEnv, IAppConfig, APP_ENVIRONMENT, APP_CONFIG } from '../models/core.model';
 import { environment } from '../../../environments/environment';
+import { coreReducer } from '../store/core.reducer';
 import { ConfigManager } from '../config/config';
 
 @NgModule({
@@ -17,7 +18,9 @@ import { ConfigManager } from '../config/config';
     NbThemeModule.forRoot({name: 'default'}),
     NbLayoutModule,
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({}, {
+    StoreModule.forRoot({
+      Core: coreReducer
+    }, {
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,

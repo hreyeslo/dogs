@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
+// Shared
+import { I18nModule } from '@app/core';
 // UI module
 import { SelectModule } from '@ui/select';
 import { PhotoModule } from '@ui/photo';
@@ -13,7 +15,6 @@ import { FinderRoutingModule } from './finder-routing.module';
 import { featureStoreName } from './store/finder.state';
 import { FinderEffects } from './store/finder.effects';
 import { finderReducer } from './store/finder.reducer';
-import { I18nModule } from '@app/core';
 
 @NgModule({
   declarations: [

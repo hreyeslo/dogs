@@ -6,7 +6,11 @@ import { ConfigManager } from '../config/config';
 export interface IAppConfig {
   host: string;
   randomImages: number;
-  i18nScope: II18nScope;
+  i18n: {
+    scope: II18nScope;
+    default: string;
+    langs: string[];
+  };
 }
 
 export interface IAppEnv {
