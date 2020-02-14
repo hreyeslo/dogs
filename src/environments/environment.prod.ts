@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  configFile: '/configs/prod.json',
+  configFile: 'https://raw.githubusercontent.com/hreyeslo/dogs/stackblitz/src/environments/configs/prod.json',
   defaultLang: 'en'
 };
