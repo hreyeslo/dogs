@@ -22,7 +22,10 @@ export class FinderComponent implements OnInit, OnDestroy {
 
   breeds$: Observable<SelectItems>;
   breedImages$: Observable<string[]>;
+  currentPath: string;
+
   loading: boolean;
+  initialState = true;
 
   constructor(
     @Inject(SELECT_LITERALS) private _selectLiterals$: SelectLiterals,
@@ -37,7 +40,11 @@ export class FinderComponent implements OnInit, OnDestroy {
   }
 
   fetchImages(path: string): void {
+    if (this.initialState) {
+      this.initialState = false;
+    }
     this.loading = true;
+    this.currentPath = path;
     this._store.dispatch(loadBreedImages(path));
   }
 
