@@ -99,9 +99,16 @@
 						"karmaConfig": "karma.conf.js",
 						"assets": [
 							"src/favicon.ico",
-							"src/assets"
+							"src/assets",
+							"src/i18n",
+							{
+								"glob": "**/*",
+								"input": "src/environments/configs",
+								"output": "/configs/"
+							}
 						],
 						"styles": [
+							"node_modules/@nebular/theme/styles/prebuilt/default.css",
 							"src/styles.scss"
 						],
 						"scripts": []
@@ -121,9 +128,10 @@
 					}
 				},
 				"e2e": {
-					"builder": "@angular-devkit/build-angular:protractor",
+					"builder": "@nrwl/cypress:cypress",
 					"options": {
-						"protractorConfig": "e2e/protractor.conf.js",
+						"cypressConfig": "e2e/cypress.json",
+						"tsConfig": "e2e/tsconfig.e2e.json",
 						"devServerTarget": "dogs:serve"
 					},
 					"configurations": {
