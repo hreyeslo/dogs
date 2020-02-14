@@ -30,7 +30,7 @@ export class I18nService implements TranslateLoader {
     let scope = (this._configManager.config.i18n.scope[this._i18nScope] || '');
     scope = scope.replace(/(^\/)|(\/$)/g, '');
     scope = scope.replace(/(\${lang})/g, lang);
-    return `./${scope}/`;
+    return `${scope}/`;
   }
 
   _getFileName(): string {
