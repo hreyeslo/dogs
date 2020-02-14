@@ -68,11 +68,11 @@ export class FinderComponent implements OnInit, OnDestroy {
       );
   }
 
-  _skipEmpty(items: IFinderBreeds | string[]): boolean {
+  _skipEmpty(items: IFinderBreeds | string[] = []): boolean {
     return (Array.isArray(items) ? items : Object.keys(items)).length === 0;
   }
 
-  _mapSelectItems(breeds: IFinderBreeds): Observable<SelectItems> {
+  _mapSelectItems(breeds: IFinderBreeds = {}): Observable<SelectItems> {
     return of(Object.keys(breeds).map(breedKey => ({name: breedKey, value: breeds[breedKey]})));
   }
 
