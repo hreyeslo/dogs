@@ -2,9 +2,8 @@ import { NbSelectModule, NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
-// UI
-import { ISelectItem, SELECT_LITERALS, ISelectLiterals } from '@ui/select';
 // Component parts
+import { SELECT_LITERALS, ISelectLiterals, ISelectItem } from '../select.model';
 import { defaultLiterals } from '../default.literals';
 import { SelectComponent } from './select.component';
 

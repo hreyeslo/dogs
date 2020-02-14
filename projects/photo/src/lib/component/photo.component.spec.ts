@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
-// UI
-import { PHOTO_LITERALS, IPhotoLiterals } from '@ui/photo';
-
+// Component parts
+import { PHOTO_LITERALS, IPhotoLiterals } from '../photo.model';
 import { defaultLiterals } from '../default.literals';
 import { PhotoComponent } from './photo.component';
 
