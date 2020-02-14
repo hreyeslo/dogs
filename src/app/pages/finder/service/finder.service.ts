@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { switchMap } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 // // Shared service
-import { SharedBreedsService } from 'src/app/shared/services_api';
+import { SharedBreedsService } from '../../../shared/services_api';
 // Shared models
-import { IBreedsList } from 'src/app/shared/models_api';
+import { IBreedsList } from '../../../shared/models_api';
 // Service parts
 import { AbstractFinderService } from './abstract-finder.service';
 import { IFinderBreeds } from '../models/finder.model';

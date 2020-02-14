@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 // Shared
-import { SharedBreedsApiModule, SharedBreedsService } from 'src/app/shared/services_api';
+import { SharedBreedsApiModule, SharedBreedsService } from '../../../shared/services_api';
 import { FinderService } from './finder.service';
-import { APP_CONFIG, ConfigManager } from 'src/app/core/core_api';
+import { APP_CONFIG, ConfigManager } from '../../../core/core_api';
 
 describe('FinderService', () => {
   let service: FinderService;

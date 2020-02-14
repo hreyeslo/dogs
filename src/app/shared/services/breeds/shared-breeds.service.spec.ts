@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Injector } from '@angular/core';
 // Core
-import { APP_CONFIG, ConfigManager } from 'src/app/core/core_api';
+import { APP_CONFIG, ConfigManager } from '../../../core/core_api';
 
 import { SharedBreedsService } from './shared-breeds.service';
 

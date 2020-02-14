@@ -1,5 +1,5 @@
 import { createSelector } from '@ngrx/store';
-import { IAppStore } from 'src/app/shared/models_api';
+import { IAppStore } from '../../../shared/models_api';
 // Selector parts
 import { IFinderStore, featureStoreName } from './finder.state';
 

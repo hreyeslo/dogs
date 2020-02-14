@@ -9,7 +9,7 @@ const _coreReducer = createReducer(initialState,
   on(setLang, (state, {payload}) => ({
     ...state,
     i18n: {
-      ...state?.i18n,
+      ...state.i18n,
       currentLang: payload
     }
   }))
