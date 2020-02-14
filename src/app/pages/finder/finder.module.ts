@@ -4,10 +4,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 // Shared
-import { I18nModule } from '@app/core';
+import { I18nModule } from 'src/app/core/core_api';
 // UI module
-import { SelectModule } from '@ui/select';
-import { PhotoModule } from '@ui/photo';
+import { SelectModule } from 'projects/select/src/public-api';
+import { PhotoModule } from 'projects/photo/src/public-api';
 // Module parts
 import { FinderServiceApiModule } from './service/finder-service-api.module';
 import { FinderComponent } from './component/finder.component';

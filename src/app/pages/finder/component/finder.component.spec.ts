@@ -5,8 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { StoreModule } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
 // UI
-import { SELECT_LITERALS, SelectModule } from '@ui/select';
-import { PHOTO_LITERALS, PhotoModule } from '@ui/photo';
+import { SELECT_LITERALS, SelectModule } from 'projects/select/src/public-api';
+import { PHOTO_LITERALS, PhotoModule } from 'projects/photo/src/public-api';
 
 import { FinderComponent } from './finder.component';
 

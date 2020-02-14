@@ -2,9 +2,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // Core
-import { CoreModule, I18nModule } from '@app/core';
+import { CoreModule, I18nModule } from 'src/app/core/core_api';
 // UI
-import { SelectModule } from '@ui/select';
+import { SelectModule } from 'projects/select/src/public-api';
 // Module parts
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

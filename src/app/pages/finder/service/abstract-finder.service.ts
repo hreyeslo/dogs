@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 // Shared service
-import { SharedBreedsService } from '@shared/services';
+import { SharedBreedsService } from 'src/app/shared/services_api';
 // Service parts
 import { FinderServiceApiModule } from './finder-service-api.module';
 import { IFinderBreeds } from '../models/finder.model';

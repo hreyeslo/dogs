@@ -1,9 +1,9 @@
 import { TranslateService } from '@ngx-translate/core';
-import { APP_CONFIG, ConfigManager, setLang } from '@app/core';
+import { APP_CONFIG, ConfigManager, setLang } from 'src/app/core/core_api';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 // UI
-import { SelectItems } from '@ui/select';
+import { SelectItems } from 'projects/select/src/public-api';
 // Component parts
 import { environment } from '../environments/environment';
 

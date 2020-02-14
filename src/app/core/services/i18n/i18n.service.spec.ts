@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { I18nService } from './i18n.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Injector } from '@angular/core';
-import { APP_CONFIG, ConfigManager } from '@app/core';
+import { APP_CONFIG, ConfigManager } from 'src/app/core/core_api';
 import { I18N_SCOPE, EI18nScope, I18N_FILE } from '../../models/core.model';
 
 describe('I18nService', () => {

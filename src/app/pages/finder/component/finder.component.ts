@@ -4,8 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, of, Subscription, forkJoin } from 'rxjs';
 import { Store } from '@ngrx/store';
 // UI
-import { SelectItems, SELECT_LITERALS, SelectLiterals } from '@ui/select';
-import { PHOTO_LITERALS, PhotoLiterals } from '@ui/photo';
+import { SelectItems, SELECT_LITERALS, SelectLiterals } from 'projects/select/src/public-api';
+import { PHOTO_LITERALS, PhotoLiterals } from 'projects/photo/src/public-api';
 // Component parts
 import { selectBreeds, selectBreedImages } from '../store/finder.selectors';
 import { loadBreeds, loadBreedImages } from '../store/finder.actions';

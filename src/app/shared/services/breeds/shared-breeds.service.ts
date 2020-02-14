@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { switchMap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 // Shared
-import { ConfigManager, APP_CONFIG, IAppConfig } from '@app/core';
-import { IBreedsList, IBreedsResponse } from '@shared/models';
+import { ConfigManager, APP_CONFIG, IAppConfig } from 'src/app/core/core_api';
+import { IBreedsList, IBreedsResponse } from 'src/app/shared/models_api';
 // Service parts
 import { AbstractSharedBreedsService } from './abstract-shared-breeds.service';
 
