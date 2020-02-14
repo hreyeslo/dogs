@@ -62,7 +62,7 @@ export class CoreModule {}
 
 export function appInitializer(httpClient: HttpClient, configManager: ConfigManager, env: IAppEnv) {
   return (): Promise<boolean> => {
-    return httpClient.get<IAppConfig>(`/configs/${env.configFile}`)
+    return httpClient.get<IAppConfig>(env.configFile)
       .toPromise()
       .then(_config => {
         configManager.config = _config;

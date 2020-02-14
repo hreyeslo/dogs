@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  configFile: 'prod.json',
+  configFile: '/configs/prod.json',
   defaultLang: 'en'
 };
