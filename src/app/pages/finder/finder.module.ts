@@ -1,4 +1,5 @@
-import { NbLayoutModule } from '@nebular/theme';
+import { NbLayoutModule, NbButtonModule, NbIconModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
@@ -28,6 +29,9 @@ import { finderReducer } from './store/finder.reducer';
     I18nModule.forChild('finder'),
     FinderServiceApiModule,
     NbLayoutModule,
+    NbButtonModule,
+    NbEvaIconsModule,
+    NbIconModule,
     SelectModule,
     PhotoModule
   ]
