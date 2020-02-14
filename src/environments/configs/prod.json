@@ -3,8 +3,8 @@
 	"randomImages": 3,
 	"i18n": {
 		"scope": {
-			"forRoot": "/i18n/${lang}/",
-			"forChild": "/i18n/${lang}/page/"
+			"forRoot": "https://raw.githubusercontent.com/hreyeslo/dogs/stackblitz/src/i18n/${lang}/",
+			"forChild": "https://raw.githubusercontent.com/hreyeslo/dogs/stackblitz/src/i18n/${lang}/pages/"
 		},
 		"default": "en",
 		"langs": [
