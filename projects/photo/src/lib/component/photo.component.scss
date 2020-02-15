@@ -14,6 +14,7 @@
 		padding: 10px;
 
 		&__image {
+			max-width: calc(100% - 30px);
 			max-height: 300px;
 			margin: 10px;
 		}
