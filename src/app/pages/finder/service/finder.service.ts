@@ -16,8 +16,7 @@ export class FinderService implements AbstractFinderService {
 
   // Public
   loadBreeds(): Observable<IFinderBreeds> {
-    return this._breedsService.getAllBreeds()
-      .pipe(switchMap(this._mapBreeds));
+    return this._breedsService.getAllBreeds().pipe(switchMap(this._mapBreeds));
   }
 
   loadImages(path: string): Observable<string[]> {

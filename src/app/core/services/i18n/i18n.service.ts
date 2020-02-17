@@ -26,6 +26,7 @@ export class I18nService implements TranslateLoader {
     return this._httpClient.get(url);
   }
 
+  // Private
   _getScope(lang: string): string {
     let scope = (this._configManager.config.i18n.scope[this._i18nScope] || '');
     scope = scope.replace(/(^\/)|(\/$)/g, '');

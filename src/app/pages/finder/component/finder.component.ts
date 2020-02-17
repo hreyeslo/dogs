@@ -1,11 +1,11 @@
-import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
-import { skipWhile, switchMap, tap, first } from 'rxjs/operators';
+import { Observable, of, Subscription, forkJoin, Subject } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { skipWhile, switchMap, tap } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, of, Subscription, forkJoin } from 'rxjs';
 import { Store } from '@ngrx/store';
 // UI
-import { SelectItems, SELECT_LITERALS, SelectLiterals } from '../../../../../projects/select/src/public-api';
-import { PHOTO_LITERALS, PhotoLiterals } from '../../../../../projects/photo/src/public-api';
+import { SelectItems, ISelectLiterals } from '../../../../../projects/select/src/public-api';
+import { IPhotoLiterals } from '../../../../../projects/photo/src/public-api';
 // Component parts
 import { selectBreeds, selectBreedImages } from '../store/finder.selectors';
 import { loadBreeds, loadBreedImages } from '../store/finder.actions';
@@ -20,16 +20,17 @@ export class FinderComponent implements OnInit, OnDestroy {
 
   private readonly _subscriptions: Subscription[] = [];
 
+  selectLiterals$: Subject<ISelectLiterals> = new Subject<ISelectLiterals>();
+  photoLiterals$: Subject<IPhotoLiterals> = new Subject<IPhotoLiterals>();
+
   breeds$: Observable<SelectItems>;
   breedImages$: Observable<string[]>;
-  currentPath: string;
 
-  loading: boolean;
   initialState = true;
+  currentPath: string;
+  loading: boolean;
 
   constructor(
-    @Inject(SELECT_LITERALS) private _selectLiterals$: SelectLiterals,
-    @Inject(PHOTO_LITERALS) private _photoLiterals$: PhotoLiterals,
     private _tranlsateService: TranslateService,
     private _store: Store
   ) {}
@@ -54,10 +55,10 @@ export class FinderComponent implements OnInit, OnDestroy {
       .pipe(switchMap(() => forkJoin([
         this._tranlsateService.get('select'),
         this._tranlsateService.get('photo')
-      ]).pipe(first())))
+      ])))
       .subscribe(([selectLiterals, photoLiterals]) => {
-        this._selectLiterals$.next(selectLiterals);
-        this._photoLiterals$.next(photoLiterals);
+        this.selectLiterals$.next(selectLiterals);
+        this.photoLiterals$.next(photoLiterals);
       });
     this._subscriptions.push(literalsSubscription);
   }
@@ -68,11 +69,10 @@ export class FinderComponent implements OnInit, OnDestroy {
       skipWhile<IFinderBreeds>(this._skipEmpty),
       switchMap(this._mapSelectItems)
     );
-    this.breedImages$ = this._store.select(selectBreedImages)
-      .pipe(
-        tap(() => this.loading = false),
-        skipWhile<string[]>(this._skipEmpty)
-      );
+    this.breedImages$ = this._store.select(selectBreedImages).pipe(
+      tap(() => this.loading = false),
+      skipWhile<string[]>(this._skipEmpty)
+    );
   }
 
   _skipEmpty(items: IFinderBreeds | string[] = []): boolean {

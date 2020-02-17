@@ -13,5 +13,5 @@ import { IBreedsList } from '../../models/breeds.model';
 export abstract class AbstractSharedBreedsService {
   abstract getAllBreeds(): Observable<IBreedsList>;
 
-  abstract getBreedImage(path: string): Observable<any>;
+  abstract getBreedImage(path: string): Observable<string[]>;
 }

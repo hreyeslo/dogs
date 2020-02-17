@@ -1,5 +1,5 @@
 <nb-select
-    [placeholder]="(literals$ | async)?.placeholder"
+    [placeholder]="literals?.placeholder"
     (selectedChange)="selectedChange.emit($event)"
     [(selected)]="selectedItem"
 >

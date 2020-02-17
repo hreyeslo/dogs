@@ -1,13 +1,14 @@
+import { NbThemeModule, NbLayoutModule, NbButtonModule, NbIconModule } from '@nebular/theme';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { TranslateModule } from '@ngx-translate/core';
 import { StoreModule } from '@ngrx/store';
-import { BehaviorSubject } from 'rxjs';
 // UI
-import { SELECT_LITERALS, SelectModule } from '../../../../../projects/select/src/public-api';
-import { PHOTO_LITERALS, PhotoModule } from '../../../../../projects/photo/src/public-api';
+import { SelectModule } from '../../../../../projects/select/src/public-api';
+import { PhotoModule } from '../../../../../projects/photo/src/public-api';
 
+import { FinderServiceApiModule } from '../service/finder-service-api.module';
 import { FinderComponent } from './finder.component';
 
 describe('FinderComponent', () => {
@@ -21,19 +22,13 @@ describe('FinderComponent', () => {
           TranslateModule.forRoot(),
           StoreModule.forRoot({}),
           NbThemeModule.forRoot({name: 'default'}),
+          FinderServiceApiModule,
           NbLayoutModule,
+          NbButtonModule,
+          NbEvaIconsModule,
+          NbIconModule,
           SelectModule,
           PhotoModule
-        ],
-        providers: [
-          {
-            provide: SELECT_LITERALS,
-            useValue: new BehaviorSubject<any>({})
-          },
-          {
-            provide: PHOTO_LITERALS,
-            useValue: new BehaviorSubject<any>({})
-          }
         ],
         declarations: [FinderComponent]
       })
