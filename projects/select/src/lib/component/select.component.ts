@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, Input, Output, EventEmitter, Inject, Optional } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 // Component parts
-import { SelectItems, ISelectItem, SELECT_LITERALS, SelectLiterals } from '../select.model';
+import { SelectItems, ISelectItem, ISelectLiterals } from '../select.model';
+import { defaultLiterals } from '../default.literals';
 
 @Component({
   selector: 'dogs-select',
@@ -10,11 +11,13 @@ import { SelectItems, ISelectItem, SELECT_LITERALS, SelectLiterals } from '../se
 })
 export class SelectComponent {
 
+  @Input() literals: ISelectLiterals = defaultLiterals;
   @Input() items: SelectItems = [];
   @Input() selectedItem: string;
+
   @Output() selectedChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(@Optional() @Inject(SELECT_LITERALS) public literals$: SelectLiterals) {}
+  constructor() {}
 
   trackBy(index: number, item: ISelectItem): string {
     return item.value;

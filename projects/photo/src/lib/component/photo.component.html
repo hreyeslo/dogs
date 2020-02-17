@@ -1,5 +1,5 @@
 <div class="c-photo">
-    <h2 class="c-photo__title" *ngIf="(images || []).length > 0">{{(literals$ | async)?.title}}</h2>
+    <h2 class="c-photo__title" *ngIf="(images || []).length > 0">{{literals?.title}}</h2>
     <div class="c-photo__gallery">
         <ng-container *ngIf="!loading; else loadingTemplate">
             <img class="c-photo__gallery__image" *ngFor="let image of images" [src]="image" [alt]="images">

@@ -24,14 +24,17 @@ export class SharedBreedsService implements AbstractSharedBreedsService {
 
   getAllBreeds(): Observable<IBreedsList> {
     const url = `${this._apiHost}/breeds/list/all`;
-    return this._httpClient.get<IBreedsResponse>(url)
-      .pipe(switchMap(response => of(response.message)));
+    return this._sendRequest<IBreedsList>(url);
   }
 
-  getBreedImage(path: string): Observable<any> {
+  getBreedImage(path: string): Observable<string[]> {
     const url = `${this._apiHost}/breed/${path}/images/random/${this._randomImages}`;
-    return this._httpClient.get<any>(url)
-      .pipe(switchMap(response => of(response.message)));
+    return this._sendRequest<string[]>(url);
   }
 
+  // Private
+  _sendRequest<T>(url: string): Observable<T> {
+    return this._httpClient.get<IBreedsResponse>(url)
+      .pipe(switchMap(response => of(response.message as unknown as T)));
+  }
 }
