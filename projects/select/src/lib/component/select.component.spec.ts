@@ -1,11 +1,9 @@
 import { NbSelectModule, NbThemeModule, NbLayoutModule } from '@nebular/theme';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
 // Component parts
-import { SELECT_LITERALS, ISelectLiterals, ISelectItem } from '../select.model';
-import { defaultLiterals } from '../default.literals';
 import { SelectComponent } from './select.component';
+import { ISelectItem } from '../select.model';
 
 describe('SelectComponent', () => {
   let component: SelectComponent;
@@ -18,12 +16,6 @@ describe('SelectComponent', () => {
           NbThemeModule.forRoot({name: 'default'}),
           NbLayoutModule,
           NbSelectModule
-        ],
-        providers: [
-          {
-            provide: SELECT_LITERALS,
-            useValue: new BehaviorSubject<ISelectLiterals>(defaultLiterals)
-          }
         ],
         declarations: [SelectComponent]
       })

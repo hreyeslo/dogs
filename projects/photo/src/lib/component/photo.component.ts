@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, Input, Inject, Optional } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 // Component parts
-import { PHOTO_LITERALS, PhotoLiterals } from '../photo.model';
+import { defaultLiterals } from '../default.literals';
+import { IPhotoLiterals } from '../photo.model';
 
 @Component({
   selector: 'dogs-photo',
@@ -10,9 +11,10 @@ import { PHOTO_LITERALS, PhotoLiterals } from '../photo.model';
 })
 export class PhotoComponent {
 
+  @Input() literals: IPhotoLiterals = defaultLiterals;
   @Input() images: string[] = [];
   @Input() loading: boolean;
 
-  constructor(@Optional() @Inject(PHOTO_LITERALS) public literals$: PhotoLiterals) { }
+  constructor() { }
 
 }

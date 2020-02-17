@@ -1,5 +1,5 @@
 export interface IBreedsList {
-  [breed: string]: string[];
+  [key: string]: string[];
 }
 
 export interface IBreedsResponse {
